@@ -1,0 +1,174 @@
+<div class="row d-flex align-items-center w-100">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-8 website_name_label" [routerLink]="['/']">
+    Agency for Issuing Laws
+  </div>
+  <div class="col-md-2">
+  </div>
+  <button class="login-btn" (click)="loginBox = true" >Login</button>
+</div>
+
+
+<div class="row d-flex align-items-center w-100">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4">
+    <nav class="navMenu">
+      <a [routerLink]="['/registration']" style="float:none">Sign up</a>
+    </nav>
+  </div>
+  <div class="col-md-4">
+  </div>
+</div> 
+
+
+<div class="row d-flex align-items-center frontpage_gray_banner">
+  <div class="col-md-2"></div>
+  <div class="col-md-6">
+    <div class="row d-flex align-items-center frontpage_gray_banner_label">Agency for Issuing Laws:</div>
+    <div class="row d-flex align-items-center frontpage_gray_banner_label">Statements, certificates, transcripts</div> 
+  </div>
+  <div class="col-md-4">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="login-box" *ngIf="loginBox">
+        <mat-form-field class="input-box" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="" value="" formControlName="email">
+        </mat-form-field>
+        <mat-form-field class="input-box" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+      </mat-form-field>
+      <br /><br />
+      <button class="btn">Confirm</button>
+  </div>
+</form>
+</div>
+</div>
+
+
+<div class="row d-flex align-items-center">
+  <img src="assets/law.jpg" class="photo_stretch" style="object-fit: cover;" >
+</div>
+
+ 
+
+
+<div class="row d-flex align-items-center" style="margin-top: 20px;">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6">
+    <h1 class="text-black" style="font-weight: bolder; font-size: 32px; text-align: center;">How can our agency help you?</h1>
+    
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>
+
+<div class="row d-flex align-items-center frontpage_news_background">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-8">
+    <div class="row d-flex align-items-center">
+      <div class="col-md-4">
+        <div class="card news_card" style="height:300px;">
+          <div class="header">
+            <img src="assets/codification.jpeg" class="frontpage_news_item_picture" style="object-fit: cover;">
+          </div>
+        
+          <div class="card-body mx-4">
+          
+            <div class="md-form" style="font-weight: bold; margin-top: 10px; margin-bottom: 10px;">
+              <h2 class="text-black" style="font-weight: bolder; font-size: 26px;">LAW CODIFICATION PROCESS</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card news_card" style="height:300px;">
+          <div class="header">
+            <img src="assets/printedLaw.jpg" class="frontpage_news_item_picture" style="object-fit: cover;">
+          </div>
+        
+          <div class="card-body mx-4">
+          
+            <div class="md-form" style="font-weight: bold; margin-top: 10px; margin-bottom: 10px;">
+              <h2 class="text-black" style="font-weight: bolder; font-size: 26px;">ISSUANCE OF LAWS IN PRINTED FORM</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card news_card" style="height:300px;">
+          <div class="header">
+            <img src="assets/netLaw.jpg" class="frontpage_news_item_picture" style="object-fit: cover;">
+          </div>
+        
+          <div class="card-body mx-4">
+          
+            <div class="md-form" style="font-weight: bold; margin-top: 10px; margin-bottom: 10px;">
+              <h2 class="text-black" style="font-weight: bolder; font-size: 26px;">ISSUANCE OF LAWS ON INTERNET</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+  </div>
+</div>
+
+<div class="row d-flex align-items-center frontpage_feedback_section">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6">
+    <h1 style="text-align: center; font-weight: bolder; color: white">INFO STATION:</h1>
+    <div class="row">
+      <div class="col-md-1 h-100">
+        <img src="assets/Quotation_Mark.png" style="width: 100%; height: 100%">
+      </div>
+      <div class="col-md-11">
+        <p style="font-weight: bold; color: white; font-style: italic; margin-top: 5px;">General information: </p>
+        <p style="font-weight: bold; color: white; font-style: italic; margin-top: 5px;">Phone: 061 333 5555 </p>
+        <p style="font-weight: bold; color: white; font-style: italic; margin-top: 5px;">Working hours: 09 - 16 </p>
+      </div>
+      <div class="col-md-11">
+        <p style="font-weight: bold; color: white; font-style: italic; margin-top: -100px; margin-left: 750px; width: 300px;">Tech support: </p>
+        <p style="font-weight: bold; color: white; font-style: italic; margin-left: 750px; width: 300px;">Phone: 061 333 6665 </p>
+        <p style="font-weight: bold; color: white; font-style: italic;  margin-left: 750px; width: 300px;">Working hours: 09 - 16 </p>
+      </div>
+      <h2 style="text-align: right; font-weight: bolder; color: white"> </h2>
+      <h2 style="margin-left: 80%; text-align: right; font-weight: bolder; color: white"></h2>
+    </div>
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>
+
+
+
+<hr>
+
+<div class="row d-flex align-items-center footer">
+  <div class="col-md-3">
+    <h2 class="link_title">Product</h2>
+    <h4 class="link_subtitle">Our plan</h4>
+    <h4 class="link_subtitle">Free trial</h4>
+  </div>
+  <div class="col-md-3">
+    <h2 class="link_title">About us</h2>
+    <h4 class="link_subtitle">Request demo</h4>
+    <h4 class="link_subtitle">FAQs</h4>
+  </div>
+  <div class="col-md-3">
+    <h2 class="link_title">Support</h2>
+    <h4 class="link_subtitle">Services</h4>
+    <h4 class="link_subtitle">Contact us</h4>
+  </div>
+  <div class="col-md-3">
+    <h2 class="link_title">Covid-19 FAQs</h2>
+    <h4 class="link_subtitle">Reviews</h4>
+    <h4 class="link_subtitle">Safety</h4>
+  </div>
+</div>
