@@ -36,6 +36,8 @@ import { MapsComponent } from './maps/maps.component';
 import { HomepageMerchantComponent } from './homepage-merchant/homepage-merchant.component';
 import { CardPaymentComponent } from './card-payment/card-payment.component';
 import { SameBankComponent } from './same-bank/same-bank.component';
+import { DifferentBankComponent } from './different-bank/different-bank.component';
+import { ViewPaymentComponent } from './view-payment/view-payment.component';
 
 
 
@@ -48,6 +50,8 @@ const routes: Routes = [
   {path: "homepage-merchant", component: HomepageMerchantComponent},
   {path: "card-payment", component: CardPaymentComponent},
   {path: "same-bank", component: SameBankComponent},
+  {path: "different-bank", component: DifferentBankComponent},
+  {path: "view-payment", component: ViewPaymentComponent},
 
 
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -14,6 +14,7 @@ export class CardPaymentComponent implements OnInit {
 
   form: FormGroup;
   form1: FormGroup;
+  id: any;
   products: any;
   bankPayments: any;
   payments: any;
@@ -26,8 +27,15 @@ export class CardPaymentComponent implements OnInit {
 
   constructor( private formBuilder : FormBuilder,
     private router: Router,
+    private route: ActivatedRoute,
     private api: ApiService,
     private _snackBar: MatSnackBar) {
+      this.route.queryParams
+      .subscribe(params => {
+        this.id = params.id;
+      }
+    );
+      
 
       this.bankPayments = [];
       this.payments = [];
@@ -35,6 +43,7 @@ export class CardPaymentComponent implements OnInit {
 
 
       this.form = this.formBuilder.group({
+        id: ['', Validators.required],
         pan: ['', Validators.required],
         cardHolderName: ['', Validators.required],
         expirationDate: ['', Validators.required],
@@ -76,6 +85,7 @@ export class CardPaymentComponent implements OnInit {
 
     console.log('test')
 
+    const id = this.form.get('id')?.value;
     const pan = this.form.get('pan')?.value;
     const cardHolderName = this.form.get('cardHolderName')?.value;
     const expirationDate = this.form.get('expirationDate')?.value;
@@ -84,6 +94,7 @@ export class CardPaymentComponent implements OnInit {
 
 
     let data = {
+      id: id,
       pan: pan,
       cardHolderName: cardHolderName,
       expirationDate: expirationDate,
@@ -95,6 +106,7 @@ export class CardPaymentComponent implements OnInit {
     this.api.addCard(data).subscribe((response: any) => {
         console.log(response)
         this._snackBar.open('You have successfully added card.', 'Close', {duration: 100000});   
+        location.reload();
     });
 
   
@@ -163,3 +175,4 @@ logout(): void{
 
 
 }
+

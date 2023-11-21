@@ -85,6 +85,8 @@ import { ApiService } from './api.service';
 import { HomepageMerchantComponent } from './homepage-merchant/homepage-merchant.component';
 import { CardPaymentComponent } from './card-payment/card-payment.component';
 import { SameBankComponent } from './same-bank/same-bank.component';
+import { ViewPaymentComponent } from './view-payment/view-payment.component';
+import { DifferentBankComponent } from './different-bank/different-bank.component';
 
 
 @NgModule({
@@ -114,7 +116,9 @@ import { SameBankComponent } from './same-bank/same-bank.component';
 
     HomepageMerchantComponent,
     CardPaymentComponent,
-    SameBankComponent
+    SameBankComponent,
+    ViewPaymentComponent,
+    DifferentBankComponent
 
   ],
 

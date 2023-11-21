@@ -77,6 +77,20 @@ export class ApiService {
     return this.http.get(this.agencyURL + "/api/agency/" +id, this.getAuthoHeader());
   }
 
+ 
+
+  loadLatestAnswer() {
+    return this.http.get(this.secondBankURL + "/api/answer/latestAnswer", this.getAuthoHeader());
+  }
+
+  loadLatestBankPaymnet() {
+    return this.http.get(this.pspURL + "/api/bankPayment/latestBankPayment", this.getAuthoHeader());
+  }
+
+  loadLatestPaymnet() {
+    return this.http.get(this.baseURL + "/api/payment/latestPayment", this.getAuthoHeader());
+  }
+
   getClients() {
     return this.http.get(this.baseURL + "/api/users/usersByType", this.getAuthoHeader());
   }

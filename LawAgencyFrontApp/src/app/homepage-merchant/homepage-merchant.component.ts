@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -15,6 +15,9 @@ export class HomepageMerchantComponent implements OnInit {
   form1: FormGroup;
   products: any;
   bankPayments: any;
+  offers: any;
+  id: any;
+  offer: any;
   payments: any;
   cards: any;
   addProductBox : boolean = false;
@@ -24,12 +27,20 @@ export class HomepageMerchantComponent implements OnInit {
 
   constructor( private formBuilder : FormBuilder,
     private router: Router,
+    private route: ActivatedRoute,
     private api: ApiService,
     private _snackBar: MatSnackBar) {
+
+      this.route.queryParams
+      .subscribe(params => {
+        this.id = params.id;
+      }
+    );
 
       this.bankPayments = [];
       this.payments = [];
       this.cards = [];
+      this.offers = [];
 
       this.form = this.formBuilder.group({
         amount: ['', Validators.required],
@@ -53,10 +64,18 @@ export class HomepageMerchantComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.api.getAllOffers().subscribe((response:any) => {
+      this.offers = response;
+  });
 
     this.api.current().subscribe((response:any) => {
       this.user = response;
   });
+
+  this.api.getOffer(this.id).subscribe((response:any) => {
+    this.offer = response;
+});
+
   }
 
 
@@ -65,6 +84,9 @@ export class HomepageMerchantComponent implements OnInit {
   onSubmit() {
 
       console.log('test')
+      this.api.getOffer(this.id).subscribe((response:any) => {
+        this.offer = response;
+    });
 
       const amount = this.form.get('amount')?.value;
       const merchantOrderId = this.form.get('merchantOrderId')?.value;
@@ -89,6 +111,20 @@ export class HomepageMerchantComponent implements OnInit {
 
      location.reload();
   }
+
+  onSave(id: number){
+
+
+     this.api.getOffer(id).subscribe((response:any) => {
+     this.offer = response;
+     if( response != null){
+       
+       
+     } else if(response == null){
+       alert("You have successfully choosen offer")
+     }
+ });
+ }
 
   onSubmit2() {
 
@@ -133,7 +169,7 @@ export class HomepageMerchantComponent implements OnInit {
         this._snackBar.open('You have successfully started payment.', 'Close', {duration: 100000});   
     });
 
-   location.reload();
+   
 }
 
   handleProductImage(event: any) {
@@ -193,4 +229,6 @@ logout(): void{
 
 
 }
+
+
 
