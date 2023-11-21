@@ -13,6 +13,9 @@ export class ApiService {
 
   baseURL = "http://localhost:8082";
   pspURL = "http://localhost:8083";
+  pccURL = "http://localhost:8084";
+  secondBankURL = "http://localhost:8085";
+  agencyURL = "http://localhost:8081";
 
   constructor(private http: HttpClient) { }
 
@@ -27,7 +30,7 @@ export class ApiService {
   }  
 
   login(data: any) {
-    return this.http.post(this.pspURL + "/api/auth/login", data);
+    return this.http.post(this.agencyURL + "/api/agency/login", data);
   }
 
   current() {
@@ -56,6 +59,22 @@ export class ApiService {
 
   loadLatestCard() {
     return this.http.get(this.baseURL + "/api/card/latestCard", this.getAuthoHeader());
+  }
+
+  checkCardInfo(data: any){
+    return this.http.post(this.pccURL + "/api/pcc/checkCardInfo", data, this.getAuthoHeader());
+  }
+
+  addAnswer(data: any){
+    return this.http.post(this.secondBankURL + "/api/answer/addAnswer", data, this.getAuthoHeader());
+  }
+
+  getAllOffers(){
+    return this.http.get(this.agencyURL + '/api/agency/offers', this.getAuthoHeader());
+  }
+
+  getOffer(id: any) {
+    return this.http.get(this.agencyURL + "/api/agency/" +id, this.getAuthoHeader());
   }
 
   getClients() {
@@ -623,9 +642,7 @@ getAllAdventureComplaintsWithoutResponse(){
   return this.http.get(this.baseURL + "/api/adventureComplaints/allComplaintsWithoutResponse", this.getAuthoHeader());
 }
 
-getAllOffers(){
-  return this.http.get(this.baseURL + "/api/offer/offers", this.getAuthoHeader());
-}
+
 
 getAllNotSelectedOfferItems(){
   return this.http.get(this.baseURL + "/api/offerItem/items", this.getAuthoHeader());

@@ -69,7 +69,8 @@ export class SameBankComponent implements OnInit {
     this.api.editCard(this.id, data).subscribe((response:any) => {
       this.product = response;
       if( response != null){
-        this.router.navigate(['/homepage-merchant']);
+        location.reload();
+        
       } else if(response == null){
         alert("You have successfully finished payment")
       }
