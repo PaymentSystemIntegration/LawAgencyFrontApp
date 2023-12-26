@@ -57,6 +57,14 @@ export class ApiService {
     return this.http.put(this.baseURL + "/api/card/" + id, data, this.getAuthoHeader());
   }
 
+  deleteAgnecyOffer(id: number) {
+    return this.http.delete(this.agencyURL + "/api/agency/" + id, this.getAuthoHeader())
+  }
+
+  editCardPayment() {
+    return this.http.put(this.baseURL + "/api/card/editCardPayment", this.getAuthoHeader());
+  }
+
   loadLatestCard() {
     return this.http.get(this.baseURL + "/api/card/latestCard", this.getAuthoHeader());
   }

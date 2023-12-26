@@ -1,0 +1,15 @@
+<div class="row d-flex align-items-center w-100">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 website_name_label">
+     Law Agency
+    </div>
+    <div class="col-md-2">
+    </div>
+    <img src="assets/user.png" class="profile" [routerLink]="['/settings-instructor-profile']">
+    <button class="logout-btn"  (click) = "logout()" routerLink="/">Log out</button>
+  </div>
+<img [src]="qrCodeUrl" alt="QR Code" />
+<button class="btn" (click)="onSubmit1()">Generate payment</button>
+<button class="btn" (click)="onSubmit()">Finish payment</button>
+

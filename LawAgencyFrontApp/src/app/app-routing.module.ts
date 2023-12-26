@@ -38,6 +38,8 @@ import { CardPaymentComponent } from './card-payment/card-payment.component';
 import { SameBankComponent } from './same-bank/same-bank.component';
 import { DifferentBankComponent } from './different-bank/different-bank.component';
 import { ViewPaymentComponent } from './view-payment/view-payment.component';
+import { QRPaymentComponent } from './qrpayment/qrpayment.component';
+import { QRCodeComponent } from './qrcode/qrcode.component';
 
 
 
@@ -52,6 +54,8 @@ const routes: Routes = [
   {path: "same-bank", component: SameBankComponent},
   {path: "different-bank", component: DifferentBankComponent},
   {path: "view-payment", component: ViewPaymentComponent},
+  {path: "qrpayment", component: QRPaymentComponent},
+  {path: "qrcode", component: QRCodeComponent},
 
 
 

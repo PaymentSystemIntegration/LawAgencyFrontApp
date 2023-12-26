@@ -87,6 +87,8 @@ import { CardPaymentComponent } from './card-payment/card-payment.component';
 import { SameBankComponent } from './same-bank/same-bank.component';
 import { ViewPaymentComponent } from './view-payment/view-payment.component';
 import { DifferentBankComponent } from './different-bank/different-bank.component';
+import { QRCodeComponent } from './qrcode/qrcode.component';
+import { QRPaymentComponent } from './qrpayment/qrpayment.component';
 
 
 @NgModule({
@@ -118,7 +120,9 @@ import { DifferentBankComponent } from './different-bank/different-bank.componen
     CardPaymentComponent,
     SameBankComponent,
     ViewPaymentComponent,
-    DifferentBankComponent
+    DifferentBankComponent,
+    QRCodeComponent,
+    QRPaymentComponent
 
   ],
 
